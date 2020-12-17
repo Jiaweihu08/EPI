@@ -1,9 +1,14 @@
+"""
+Compute steps to move n discs from one peg to another following
+the rules of Tower of Hanoi
+"""
+
+
 def compute_hanoi_tower(num_rings):
 	def compute_hanoi_step(num_rings, from_peg, to_peg, use_peg):
 		if num_rings > 0:
 			compute_hanoi_step(num_rings - 1, from_peg, use_peg, to_peg)
 			pegs[to_peg].append(pegs[from_peg].pop())
-			print(pegs)
 			result.append([from_peg, to_peg])
 			compute_hanoi_step(num_rings - 1, use_peg, to_peg, from_peg)
 	
@@ -14,5 +19,5 @@ def compute_hanoi_tower(num_rings):
 	
 	return result
 
-if __name__ == '__main__':
-	compute_hanoi_tower(5)
+
+compute_hanoi_tower(5)

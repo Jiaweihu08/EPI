@@ -1,3 +1,17 @@
+"""
+Generate all possible n node binary trees
+
+The variation on each n node binary tree is that it can have
+an i node left subtree and a (n - i - 1) node right subtree, for
+all possible values of i. Same is applied to each subtree
+
+For each recursion call, we generate all possible subtrees with
+different sizes and variations, then we combine define these subtrees
+as either left or right child of the root node, taking into account
+the fact that their size shoud sum to n-1
+"""
+
+
 class BinaryTreeNode:
 	def __init__(self, val, left=None, right=None):
 		self.val = val

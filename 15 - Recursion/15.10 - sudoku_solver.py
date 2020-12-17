@@ -1,3 +1,10 @@
+"""
+steps:
+- Find the next empty position
+- Try out possible values until the assignment is completed
+"""
+
+
 def sudoku_solver(sudoku):
 	def solve_partial_sudoku(i, j):
 		if j == 9:
@@ -37,6 +44,7 @@ def sudoku_solver(sudoku):
 	
 	solve_partial_sudoku(0, 0)
 	return sudoku
+
 
 sudoku = [[5,3,0,0,7,0,0,0,0],
 		[6,0,0,1,9,5,0,0,0],
