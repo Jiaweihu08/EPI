@@ -1,12 +1,20 @@
+"""
+Given an nxn 2D matrix, return its values in spiral ordering
+e.g. 1,2,3
+	 4,5,6  --> [1,2,3,6,9,8,7,4,5]
+	 7,8,9
+"""
+
+
 def matrix_in_spiral_order(A):
 	"""
 	The key insight for this problem is to notice that generating a
 	spiral ordering of a matrix is the same as reading the each layer
 	of the matrix clockwise
 
-	In this solution, for each layer we do four horizontal or vertical
-	readings, each time starting at the first available position and
-	always leaving an offset of elements in the same row/column
+	In this solution, for each layer we do two horizontal and vertical
+	readings clockwise, each time starting at the first available position and
+	leaving an offset of elements in the same row/column
 	"""
 	def matrix_layer_in_clockwise(offset):
 		if offset == len(A) - 1 - offset:
@@ -31,15 +39,15 @@ def matrix_in_spiral_ordering_2(A):
 	In the previous solution we extend the ordering four times for each
 	layer and they are almost identical
 
-	The same reading could be done also by repeatedly reading elements
+	The same reading could also be done by repeatedly reading elements
 	in a given direction and then make an appropiated turn when a limit
 	is reached
 	"""
 	not_present = 0
-	for row in A:
-		for num in row:
-			not_present = min(num, not_present)
-	not_present -= 1
+	# for row in A:
+	# 	for num in row:
+	# 		not_present = min(num, not_present)
+	# not_present -= 1
 
 	shift = ((0, 1), (1, 0), (0, -1), (-1, 0))
 	direction = i = j = 0

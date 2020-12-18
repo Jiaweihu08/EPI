@@ -1,16 +1,20 @@
+"""
+Given two integers n and k with k<=n, return a subset
+of size k from [1,2,...,n - 1] where all values from
+the range can be chosen with the same probability and
+all permutations of the chosen subset also have the
+same probability to be chosen
+"""
 import random
 
 
 def random_subset_brute_force(n, k):
 	"""
-	The optimal solution can be as optimal as O(k) time and space complexity
-
-	This brute force solution takes O(n) to create the array and O(n) to shuffle,
-	and O(n) space storing the size-n array
+	This brute force solution takes O(n) to create the array, O(n) to shuffle,
+	and O(n) space for storing the n-size array
 	"""
 	A = list(range(n))
 	random.shuffle(A)
-
 	return A[:k]
 
 
@@ -30,7 +34,7 @@ def random_sampling(n, k):
 
 def random_subset(n, k):
 	"""
-	Find a way to avoid creating an array of size n, this will
+	Find a way to avoid creating the array of size n, this will
 	then reduce both time and space complexity to O(k)
 
 	Generate random indices and move the values from that indice

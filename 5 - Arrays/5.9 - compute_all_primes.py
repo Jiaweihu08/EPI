@@ -1,7 +1,16 @@
+"""
+Given an integer n, compute all prime numbers in range (1, n]
+"""
+
+
 import math
 
 
 def compute_primes_brute_force(n):
+	"""
+	Check every number in the range, the number is taken
+	if it's prime
+	"""
 	def is_prime(n):
 		"""
 		For each number i in [2, n), there are (i - 2) operations
@@ -26,6 +35,11 @@ def compute_primes_brute_force(n):
 
 
 def compute_primes(n):
+	"""
+	As before, we check all numbers from the range
+	but once a number is identified as nonprime, none
+	of its multiples will be considered lateron
+	"""
 	primes = []
 	is_prime = [False, False] + [True] * (n - 1)
 	for p in range(2, n + 1):

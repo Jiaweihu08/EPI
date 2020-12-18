@@ -1,3 +1,7 @@
+"""
+Given a partially assigned sudoku, return True if this
+partial assignment is valid, False otherwise
+"""
 import math
 import collections
 
@@ -44,7 +48,7 @@ def is_valid_sudoku(A):
 	return checker_helper(0, 0)
 
 
-def is_valid_sudoku_eopi(A):
+def is_valid_sudoku_epi(A):
 	def has_duplicate(block):
 		block = filter(lambda x: x != 0, block)
 		return len(block) != len(set(block))
@@ -66,19 +70,19 @@ def is_valid_sudoku_eopi(A):
 
 def is_valid_sudoku_pythonic(A):
 	"""
-	For each non-zero value in A, we need to check if there's a
-	duplicate of this value in its row, column, and subgrid
-
-	For that, we define three tuples for each non-zero number.
+	For each non-zero value in A, we need to check if there's a duplicate
+	of this value in its row, column, and subgrid. For that, we define
+	three tuples for each non-zero assignment
+	
 	Say that we have 5 at i, j, we define the following three
 	tuples:
 		row: (i, '5')
 		col: ('5', j)
 		subgrid: (i // 3, j // 3, '5')
 
-	And count the occurrences of each of these tuples, if the
-	count for any of the tuples at any position or number is > 1,
-	then there must certainly be duplicates, and we will return False
+	And count the occurrences of each of these tuples, if the count for
+	any of the tuples at any position or number is > 1, then there must
+	certainly be duplicates
 	"""
 	region_size = int(math.sqrt(len(A)))
 	return max(collections.Counter(

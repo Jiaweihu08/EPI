@@ -1,3 +1,10 @@
+"""
+Given a sorted array of integers, remove the duplicates
+and return the number of unique entries
+"""
+import itertools
+
+
 def delete_duplicates_naive(A):
 	"""
 	Time complexity: O(n)
@@ -41,12 +48,8 @@ def delete_duplicates_move_left(A):
 	return i 
 
 
-
-A = [1,2,3,3,3,4,5,6,6,7,7,7,7,8]
-# print(delete_duplicates_naive(A))
-# print(delete_duplicates_naive_hash(A))
-# print(delete_duplicates_move_left(A))
-
+def delete_duplicates_groupby(A):
+	return [k for k, g in itertools.groupby(A)]
 
 
 def delete_duplicates(A):
@@ -65,6 +68,12 @@ def delete_duplicates(A):
 	print(A)
 	return to_write
 
+A = [1,2,3,3,3,4,5,6,6,7,7,7,7,8]
+# print(delete_duplicates_naive(A))
+# print(delete_duplicates_naive_hash(A))
+# print(delete_duplicates_move_left(A))
+# print(delete_duplicates_groupby(A))
 print(delete_duplicates(A))
+
 
 

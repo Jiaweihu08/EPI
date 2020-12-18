@@ -1,4 +1,10 @@
+"""
+Given an array of distinct elements and a size k, return a
+subset of size k, making sure that all possible subsets of
+size k are equally likely to be chosen
+"""
 import random
+
 
 def random_samping(A, k):
 	"""

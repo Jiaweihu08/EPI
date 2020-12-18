@@ -1,31 +1,48 @@
-import random
+"""
+Given an array of integers and a index integer i, reorder
+the array so the elements smaller that A[i] are on A[i]'s
+left side, those larger than A[i] are placed on it's right
+side
+
+Again, O(n) space solution is trivial, build three arrays
+less_than, equal_to, and larger_than and place each entrie
+in one of the three arrays accoding to their values and return
+the merged array at the end
+
+The O(1) space solution can be achieved by performing swappings
+either looping through the array twice moving smaller entries
+to the fron and larger entries to the end or, as in the case of
+exercise 5.0, define three regions in the array and swap the
+entries from the unclassified region to their corresponding regions
+"""
 
 
-def quick_sort(A, l, r):
-	if l >= r:
-		return
+# import random
+# def quick_sort(A, l, r):
+# 	if l >= r:
+# 		return
 
-	def partition_3(A, l, r):
-		pivot = A[l]
-		j = l
-		count = 1
-		for i in range(l+1, r):
-			if A[i] < pivot:
-				j += 1
-				A[i], A[j] = A[j], A[i]
-			elif A[i] == pivot:
-				count += 1
+# 	def partition_3(A, l, r):
+# 		pivot = A[l]
+# 		j = l
+# 		count = 1
+# 		for i in range(l+1, r):
+# 			if A[i] < pivot:
+# 				j += 1
+# 				A[i], A[j] = A[j], A[i]
+# 			elif A[i] == pivot:
+# 				count += 1
 
-		A[l], A[j] = A[j], A[l]
-		return j, j + count
+# 		A[l], A[j] = A[j], A[l]
+# 		return j, j + count
 
-	k = random.randint(l, r - 1)
-	A[l], A[k] = A[k], A[l]
+# 	k = random.randint(l, r - 1)
+# 	A[l], A[k] = A[k], A[l]
 
-	m1, m2 = partition_3(A, l, r)
+# 	m1, m2 = partition_3(A, l, r)
 
-	quick_sort(A[l, m1])
-	quick_sort(A[m1, r])
+# 	quick_sort(A[l, m1])
+# 	quick_sort(A[m1, r])
 
 
 def dutch_flag_partition_brute_force(A, pivot_index):
@@ -105,7 +122,7 @@ def dutch_flag_partition(A, pivot_index):
 			
 
 A = [1,4,0,5,3,4]
-pivot_index = 3
+pivot_index = 4
 print(pivot_index, A[pivot_index])
 dutch_flag_partition(A, pivot_index)
 print(A)
