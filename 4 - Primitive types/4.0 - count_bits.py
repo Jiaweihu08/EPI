@@ -17,7 +17,7 @@ def count_bits_wegner(x):
 	"""
 	x & (x - 1) returns x with its last set bit removed
 	so if the input integer is 1000....0 then the number
-	of iterations will be 1 instead of 64, which is the case
+	of iterations will be 1 instead of 64 which is the case
 	of the naive approach
 	"""
 	num_bits = 0

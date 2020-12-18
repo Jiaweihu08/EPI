@@ -1,3 +1,10 @@
+"""
+Given two rectangles in a 2D space, find their intersections
+
+Hint: Compare the intersections of the two dimensions separatedly
+"""
+
+
 from collections import namedtuple
 
 Rect = namedtuple('Rect', ('x','y','width','height'))

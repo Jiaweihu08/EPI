@@ -6,8 +6,8 @@
 >>: right shift operator
 <<: left shift operator
 
-x & 1, checks if the leftmost bit of x is 1
-x >>= 1, erase the leftmost bit from x
+x & 1, checks if the least significant bit of x is 1
+x >>= 1, erase the rightmost bit from x
 """
 
 def parity_count_bits(x):
@@ -30,6 +30,7 @@ def parity_mod_2(x):
 
 	result starts at 0 and it would change its value to 1
 	or later from 1 to 0 every time a bit = 1 is encountered
+
 	'''
 	result = 0
 	while x:
