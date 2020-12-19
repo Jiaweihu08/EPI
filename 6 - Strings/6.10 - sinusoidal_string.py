@@ -28,6 +28,6 @@ def make_sinusoidal(s):
 def make_sinusoidal_pythonic(s):
 	return s[1::4] + s[::2] + s[3::4]
 
+
 s = 'Hello World!'
-s1 = 'This is Jiawei Hustling!'
-print(make_sinusoidal_pythonic(s1))
+print(make_sinusoidal_pythonic(s))

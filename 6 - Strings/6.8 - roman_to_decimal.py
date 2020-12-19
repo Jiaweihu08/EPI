@@ -22,7 +22,9 @@ def roman_to_decimal_pythonic(s):
 		lambda val, i: val + (-T[s[i]] if T[s[i]] < T[s[i + 1]] else T[s[i]]),
 		reversed(range(len(s) - 1)), T[s[-1]])
 
-S = ['XXXIII', 'XXXIV', 'IX', 'CMLXXXV', 'LIX', 'LVIIII']
 
+S = ['XXXIII', 'XXXIV', 'IX', 'CMLXXXV', 'LIX', 'LVIIII']
 for s in S:
 	print(roman_to_decimal_pythonic(s))
+
+	

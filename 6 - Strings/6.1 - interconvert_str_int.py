@@ -6,16 +6,16 @@ import functools
 def int_to_str(x):
 	# result = []
 	# l = 0
-	# if num < 0:
+	# if x < 0:
 	# 	result.append('-')
 	# 	l = 1
-	# 	num = -num
-	# num_digits = math.floor(math.log10(num)) + 1
+	# 	x = -x
+	# num_digits = math.floor(math.log10(x)) + 1
 	
 	# for _ in range(num_digits):
 	# 	num_digits -= 1
-	# 	result.append(str(num // (10 ** num_digits)))
-	# 	num %= 10 ** num_digits
+	# 	result.append(str(x // (10 ** num_digits)))
+	# 	x %= 10 ** num_digits
 	# return ''.join(result)
 
 	is_negative = False
@@ -52,6 +52,7 @@ def str_to_int(s):
 
 
 print(str_to_int('-301'))
+print(int_to_str(102))
 
 
 
