@@ -52,9 +52,9 @@ def binary_tree_depth_order(tree):
 	while current_depth_nodes:
 		result.append([node.data for node in current_depth_nodes])
 		current_depth_nodes = [
-							child for curr in current_depth_nodes
-							for child in (curr.left, curr.right) if child
-							]
+			child for curr in current_depth_nodes
+			for child in (curr.left, curr.right) if child
+		]
 	return result
 
 
