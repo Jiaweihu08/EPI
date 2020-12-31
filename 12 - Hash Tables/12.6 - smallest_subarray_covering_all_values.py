@@ -5,32 +5,35 @@ array that contains all keywords
 import collections
 
 
-def find_smallest_subarray_covering_set_n3(paragrah, keywords):
-	"""
-	Compute all possible subarrays of size from range(len(keywords), len(paragrah))
-	and see if they contain all the keywords
+Subarray = collections.namedtuple('Subarray', ('start', 'end'))
+
+
+# def find_smallest_subarray_covering_set_n3(paragrah, keywords):
+# 	"""
+# 	Compute all possible subarrays of size from range(len(keywords), len(paragrah))
+# 	and see if they contain all the keywords
 	
-	O(n^3) time complexity
-	"""
-	min_size = len(paragrah)
-	result = None
-	for subarray_size in range(len(keywords), len(paragraph)):
-		for i in range(len(paragraph) - subarray_size):
-			remaining_keywords = keywords.copy()
-			start = -1
-			for j, word in enumerate(paragraph[i: i + subarray_size]):
-				if not remaining_keywords:
-					if i + j - 1 - start < min_size:
-						min_size = i + j - 1 - start
-						result = (start, i + j - 1)
-						break
+# 	O(n^3) time complexity
+# 	"""
+# 	min_size = len(paragrah)
+# 	result = None
+# 	for subarray_size in range(len(paragraph) + 1):
+# 		for i in range(len(paragraph)):
+# 			remaining_keywords = keywords.copy()
+# 			start = -1
+# 			for j, word in enumerate(paragraph[i: i + subarray_size]):
+# 				if not remaining_keywords:
+# 					if i + j - 1 - start < min_size:
+# 						min_size = i + j - 1 - start
+# 						result = (start, i + j - 1)
+# 						break
 
-				if word in remaining_keywords:
-					remaining_keywords.remove(word)
-					if start == -1:
-						start = i + j
+# 				if word in remaining_keywords:
+# 					remaining_keywords.remove(word)
+# 					if start == -1:
+# 						start = i + j
 
-	return result
+# 	return result
 
 
 def find_smallest_subarray_covering_set_n2(paragrah, keywords):
@@ -43,27 +46,22 @@ def find_smallest_subarray_covering_set_n2(paragrah, keywords):
 
 	O(n^2) time complexity
 	"""
-	min_size = len(paragrah)
-	result = None
-	for i in range(len(paragraph)):
-		remaining_keywords = keywords.copy()
-		start = -1
-		for j, word in enumerate(paragraph[i:]):
-			if not remaining_keywords:
-				if i + j - 1 - start < min_size:
-					min_size = i + j - 1 - start
-					result = (start, i + j - 1)
-				break
-			
-			if word in remaining_keywords:
-				remaining_keywords.remove(word)
-				if start == -1:
-					start = i + j
-				
-	return result
-
-
-Subarray = collections.namedtuple('Subarray', ('start', 'end'))
+	result = Subarray(-1, -1)
+    for start_idx in range(len(paragraph)):
+        remaining_keywords = keywords.copy()
+        start = -1
+        for i, word in enumerate(paragraph[start_idx:]):
+            if word in remaining_keywords:
+                remaining_keywords.remove(word)
+                if start == -1:
+                    start = i + start_idx
+                if not remaining_keywords:
+                    if (result == Subarray(-1, -1) or
+                        i + start_idx - start < result.end - result.start):
+                        result = Subarray(start, i + start_idx)
+                    break
+                
+    return result
 
 
 def find_smallest_subarray_covering_set(paragraph, keywords):
@@ -221,8 +219,8 @@ for x and the x x x for or x""".split()
 
 keywords = set(['the', 'or', 'and', 'for'])
 
-print(find_smallest_subarray_covering_set_n3(paragraph, keywords))
-print(find_smallest_subarray_covering_set_n2(paragraph, keywords))
-print(find_smallest_subarray_covering_set(paragraph, keywords))
+
+# print(find_smallest_subarray_covering_set_n2(paragraph, keywords))
+# print(find_smallest_subarray_covering_set(paragraph, keywords))
 print(find_smallest_subarray_covering_set_linkedlist(paragraph, keywords))
 
