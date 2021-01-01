@@ -62,6 +62,21 @@ def find_smallest_sequentially_covering_subset_n2(paragraph, keywords):
 
 
 def find_smallest_sequentially_covering_subset(paragraph, keywords):
+	"""
+	Use a hash table to map keywords to their most recent occurrences
+	in the paragraph array as iterating through it
+
+	Use another hash table mapping each keyword to the length of the
+	of the shortest subarray ending at the most recent occurrence of
+	that keyword
+
+	Use these two hash tables to determine the shortest subarray
+	sequentially covering the first k keywords given the shortest
+	subarray sequentially covering the first k - 1 keywords
+
+	When the word encountered is the last keyword, update the result
+	if needed
+	"""
 	keyword_to_idx = {k: i for i, k in enumerate(keywords)}
 	latest_occurrence = [-1] * len(keywords)
 	shortest_subarray_length = [float('inf')] * len(keywords)
@@ -90,7 +105,7 @@ def find_smallest_sequentially_covering_subset(paragraph, keywords):
 
 
 paragraph = """
-A A x x B x x B C A
+A A x x B x C B C A
 D x C D x x A C D x
 C A x x B C x x D x
 D B C A B D x C B x
@@ -99,6 +114,6 @@ D B C A B D x C B x
 keywords = ['A', 'B', 'C', 'D']
 
 
-print(find_smallest_sequentially_covering_subset_n2(paragraph, keywords))
+# print(find_smallest_sequentially_covering_subset_n2(paragraph, keywords))
 print(find_smallest_sequentially_covering_subset(paragraph, keywords))
 
