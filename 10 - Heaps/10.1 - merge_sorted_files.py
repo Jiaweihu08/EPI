@@ -1,5 +1,19 @@
 """
 Given k sorted arrays, merge them into a single sorted array
+
+Since all arrays are sorted, we can use merge sort implemented
+with a min heap.
+
+We store the first element of all arrays in a min heap and keep
+extracting the smallest one and append it to the result. The next
+element from the popped element pertains to is added back to the
+heap.
+
+There are n elements in total and each heap modifications is log(k)
+with k being the height of the heap.
+
+O(nlog(k)) Time complexity
+O(log(k)) Space complexity
 """
 import heapq
 
@@ -11,7 +25,7 @@ def merge_sorted_arrays(sorted_arrays):
 	for i, it in enumerate(sorted_arrays_iters):
 		first_element = next(it, None)
 		if first_element is not None:
-			heapq.heappush(min_heap, (i, first_element))
+			heapq.heappush(min_heap, (first_element, i))
 
 	results = []
 	while min_heap:
@@ -24,3 +38,5 @@ def merge_sorted_arrays(sorted_arrays):
 
 	return results
 
+
+# Test the code with EPIJudge
