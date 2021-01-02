@@ -2,12 +2,12 @@
 Given an array of integers, return the kth largest element
 
 The naive solution would be sort the array in descending order
-and return the element at k-1 index, the time complexity if
-O(nlog(n)), but obviously sorting is not necessary
+and return the element at k-1 index, the time complexity is
+O(nlog(n))
 
-Another way to solve this is to use store candidate elements in 
-a k-size min-heap. The time complexity is O(nlog(k)) and O(k) space
-complexity. But again, it stores k largest elements.
+Another way to solve this is to store candidate elements in a
+k-size min-heap. The time complexity is O(nlog(k)) and O(k)
+space complexity. But again, it stores k largest elements.
 """
 import random
 

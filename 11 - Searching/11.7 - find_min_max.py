@@ -2,7 +2,6 @@
 Given an array of integers, return the min and max with less
 than 2(n - 1) comparisons
 """
-
 import collections
 
 
@@ -36,3 +35,6 @@ def find_min_max(A):
 			max(global_min_max.max, A[-1]))
 
 	return global_min_max
+
+
+# Tested with EPIJudge
