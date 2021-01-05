@@ -11,8 +11,8 @@ def is_binary_tree(tree):
 	Space complexity O(h), h is the height of the tree
 	"""
 	def is_valid_key(tree,
-					left_limit=float('-inf'),
-					right_limit=float('inf')):
+		left_limit=float('-inf'),
+		right_limit=float('inf')):
 		if not tree:
 			return True
 		if not left_limit <= tree.data <= right_limit:
@@ -24,8 +24,8 @@ def is_binary_tree(tree):
 
 def is_binary_tree_inorder_traversal(tree):
 	"""
-	Exploit the fact that an inorder traversal rendes data in
-	sorted order for BST.
+	Exploit the fact that an inorder traversal renders data in
+	sorted order for BST
 
 	Use inorder traversal to check whether the current key is
 	smaller the the previous key
@@ -51,10 +51,8 @@ def is_binary_tree(tree):
 
 	Check the tree nodes with BFS to improve efficiency
 	"""
-	QueueEntry = collections.namedtuple('QueueEntry',
-									('node', 'lower', 'upper'))
-	bfs_queue = collections.deque(
-		[QueueEntry(tree, float('-inf'), float('inf'))])
+	QueueEntry = collections.namedtuple('QueueEntry', ('node', 'lower', 'upper'))
+	bfs_queue = collections.deque([QueueEntry(tree, float('-inf'), float('inf'))])
 
 	while bfs_queue:
 		front = bfs_queue.popleft()
