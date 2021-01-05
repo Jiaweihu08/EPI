@@ -6,6 +6,8 @@ def find_k_largest_in_bst_naive(tree, k):
 	"""
 	Traverse the tree in inorder fashion and record the values
 	return the k last values
+
+	O(n) time and space complexity
 	"""
 	def inorder_traversal(tree):
 		if not tree:
@@ -26,6 +28,10 @@ def find_k_largest_in_bst(tree, k):
 	We can perform reverse inorder traversal and append the
 	largest value at each step as long as the number of
 	values in the result is smaller than k
+
+	O(h + k) time complexity; h = tree height
+		# descending h times, and ascend back k times
+	O(k) space complexity
 	"""
 	def find_k_largest_in_bst_helper(tree):
 		if tree and len(k_largest_elements) < k:

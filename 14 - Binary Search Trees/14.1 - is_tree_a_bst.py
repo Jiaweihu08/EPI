@@ -31,16 +31,18 @@ def is_binary_tree_inorder_traversal(tree):
 	smaller the the previous key
 	O(n) time complexity, O(h) space complexity
 	"""
-	def inorder_traversal(tree, prev=float('-inf')):
+	def inorder_traversal(tree):
 		if not tree:
-			return True, prev
+			return True
 
-		valid_left_subtree, prev = inorder_traversal(tree.left, prev)
-		if not valid_left_subtree or prev > tree.data:
-			return False, prev
+		valid_left_subtree = inorder_traversal(tree.left)
+		if not valid_left_subtree or prev[0] > tree.data:
+			return False
 
-		return inorder_traversal(tree.right, tree.data)
-	return inorder_traversal(tree)[0]
+		prev[0] = tree.data
+		return inorder_traversal(tree.right)
+	prev = [float('-inf')]
+	return inorder_traversal(tree)
 
 
 def is_binary_tree(tree):
