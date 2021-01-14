@@ -56,7 +56,7 @@ def find_max_sum_n3(A):
 def find_max_sum_n2(A):
 	"""
 	The same methodology as before but range sum is computed
-	via S which is a accumulated sum of A.
+	via S which is an accumulated sum of A.
 	"""
 	S = [0] * (len(A) + 1)
 	for i, a in enumerate(A):
