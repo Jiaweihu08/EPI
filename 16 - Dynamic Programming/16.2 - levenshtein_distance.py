@@ -1,3 +1,8 @@
+"""
+Given two strings A and B, compute the minimum number of edits required
+to convert A into B. Allowed edits are substitution, insertion, and
+deletion.
+"""
 import functools
 
 
@@ -20,4 +25,23 @@ def levenshtein_distance(A, B):
 	return compute_distance_between_prefixes(len(A) - 1, len(B) - 1)
 
 
-print(levenshtein_distance('saturday', 'sundays'))
+def levenshtein_distance_minab_space(A, B):
+	if len(B) > len(A):
+		A, B = B, A
+	dp = [i for i in range(len(B) + 1)]
+
+	for i in range(len(A)):
+		substitute_last = dp[0]
+		dp[0] = i + 1
+		for j in range(1, len(B) + 1):
+			if A[i] == B[j - 1]:
+				dp[j],  substitute_last = substitute_last, dp[j]
+				continue
+			next_sub = delete_last = dp[j]
+			insert_last = dp[j - 1]
+			dp[j] = 1 + min(substitute_last, insert_last, delete_last)
+			substitute_last = next_sub
+	return dp[-1]
+
+
+print(levenshtein_distance_minab_space('Orchestra', 'Carthorse'))
