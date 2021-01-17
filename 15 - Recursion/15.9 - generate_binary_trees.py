@@ -1,56 +1,35 @@
 """
 Generate all possible n node binary trees
 
-The variation on each n node binary tree is that it can have
-an i node left subtree and a (n - i - 1) node right subtree, for
-all possible values of i. Same is applied to each subtree
+The variation on each n node binary tree is that it can have an i
+node left subtree and a (n - i - 1) node right subtree, for all
+possible values of i. Same is applied to each subtree.
 
 For each recursion call, we generate all possible subtrees with
-different sizes and variations, then we combine define these subtrees
-as either left or right child of the root node, taking into account
-the fact that their size shoud sum to n-1
+different sizes and variations, then we combine these subtrees as
+either left or right child of the root node, taking into account
+the fact that their size shoud sum to n - 1.
 """
+# class BinaryTreeNode:
+# 	def __init__(self, key, left=None, right=None):
+# 		self.key = key
+# 		self.left = left
+# 		self.right = right
 
 
-class BinaryTreeNode:
-	def __init__(self, val, left=None, right=None):
-		self.val = val
-		self.left = left
-		self.right = right
+def generate_all_binary_trees(num_nodes):
+	if num_nodes == 0:
+		return [None]
 
-	def __repr__(self):
-		return str(self.val)
+	result = []
+	size_to_subtree = {i: generate_all_binary_trees(i) for i in range(num_nodes)}
 
+	for left_subtree_size in range((num_nodes - 1) // 2 + 1):
+		right_subtree_size = num_nodes - 1 - left_subtree_size
+		for left_subtree in size_to_subtree[left_subtree_size]:
+			for right_subtree in size_to_subtree[right_subtree_size]:
+				result.append(BinaryTreeNode(0, left_subtree, right_subtree))
+				if left_subtree_size != right_subtree_size:
+					result.append(BinaryTreeNode(0, right_subtree, left_subtree))
+	return result
 
-def generate_all_binary_trees(n):
-	if n == 1:
-		return [BinaryTreeNode(n)]
-
-	results = []
-	sub_trees = {0: [None]}
-	for i in range(1, n):
-		sub_trees[i] = generate_all_binary_trees(i)
-
-	for i in range((n - 1) // 2 + 1):
-		for node_l in sub_trees[i]:
-			for node_r in sub_trees[n-1-i]:
-				results.append(BinaryTreeNode(n, node_l, node_r))
-				if i != n-1-i:
-					results.append(BinaryTreeNode(n, node_r, node_l))
-
-	return results
-
-
-def bfs(node):
-	stack = [[node, 'root']]
-	while stack:
-		node, msg = stack.pop()
-		print(node, msg)
-		if node.right:
-			stack.append([node.right, 'right'])
-		if node.left:
-			stack.append([node.left, 'left'])
-
-for tree in generate_all_binary_trees(4):
-	bfs(tree)
-	print('-----')

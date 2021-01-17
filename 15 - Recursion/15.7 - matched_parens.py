@@ -1,28 +1,30 @@
 """
-Generate all possible valid combinations of n parens
+Generate all possible valid combinations of n parens.
+
 n = 3:
 	'((()))', '()(())', '(()())', '(())()', '()()()'
 
-We cannot place a closing parens without having a corresponding
-opening. In other words, the number of remaining openings has always
-be equal or smaller than the number of remaining closing parens
+We cannot place a closing parens without having a corresponding opening.
+In other words, the number of remaining openings has always be equal or
+smaller than the number of remaining closing parens.
 """
-
-def compute_matched_parens(n):
-	def solve_matched_parens(num_open_remain, num_close_remain, prefix):
-		if num_open_remain == 0:
-			result.append(prefix + ')' * num_close_remain)
+def generate_balanced_parentheses(num_pairs):
+	def complete_prefix(num_remaining_open, num_remaining_close, prefix):
+		if num_remaining_open == 0:
+			result.append(prefix + ')' * num_remaining_close)
 			return
 
-		if num_open_remain > 0:
-			solve_matched_parens(num_open_remain-1, num_close_remain, prefix + '(')
+		if num_remaining_open > 0:
+			complete_prefix(
+				num_remaining_open - 1, num_remaining_close, prefix + '(')
 
-		if num_open_remain < num_close_remain:
-			solve_matched_parens(num_open_remain, num_close_remain - 1, prefix + ')')
+		if num_remaining_open < num_remaining_close:
+			complete_prefix(
+				num_remaining_open, num_remaining_close - 1, prefix + ')')
 	
 	result = []
-	solve_matched_parens(n, n, '')
+	complete_prefix(num_pairs, num_pairs, '')
 	return result
 
-print(compute_matched_parens(4))
 
+print(generate_balanced_parentheses(3))

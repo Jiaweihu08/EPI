@@ -3,8 +3,6 @@ steps:
 - Find the next empty position
 - Try out possible values until the assignment is completed
 """
-
-
 def sudoku_solver(sudoku):
 	def solve_partial_sudoku(i, j):
 		if j == 9:

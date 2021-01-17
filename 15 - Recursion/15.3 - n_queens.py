@@ -1,24 +1,22 @@
 """
-Place n queens on a n x n board in nonattacking positions
-
-Nonattacking positions means that no two queens are placed
-in the same row, column, or diagonal
+Place n queens on a n x n board in nonattacking positions - no
+two queens are placed in the same row, column, or diagonal.
 
 For n = 4, here is a posible solution of the problem:
-_ x _ _
-_ _ _ x
-x _ _ _
-_ _ x _
+
+						_ x _ _
+						_ _ _ x
+						x _ _ _
+						_ _ x _
 
 Since there can only be one queen for each row, we can define
 our outputs as a n-length list with each value being the column
-where the queen is placed
+where the queen is placed.
 
 For each row, we iterate through the columns and check if the
-current placement is acceptable
+current placement is acceptable by checking if there's any
+conflict with any placement in previous rows.
 """
-
-
 def n_queens(n):
 	def solve_n_queens(row):
 		if row == n:
@@ -41,7 +39,6 @@ def n_queens(n):
 			else:
 				col_placement[row] = col
 				solve_n_queens(row+1)
-
 
 	results = []
 	col_placement = [0] * n
