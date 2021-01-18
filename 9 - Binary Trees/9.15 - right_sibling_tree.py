@@ -1,8 +1,6 @@
 """
 Compute the right sibling tree
 """
-
-
 class BinaryTreeNode:
 	def __init__(self, data=0, left=None, right=None):
 		self.data = data
