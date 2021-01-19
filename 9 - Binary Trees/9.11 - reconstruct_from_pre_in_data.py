@@ -31,26 +31,3 @@ def binary_tree_from_preorder_inorder(preorder, inorder):
 	return binary_tree_from_preorder_inorder_helper(
 			0, len(preorder), 0, len(inorder))
 
-
-# def tree_traversal(tree, traversal='pre'):
-# 	if not tree:
-# 		return
-
-# 	if traversal == 'pre':
-# 		print(tree.data, end=' ')	
-# 	tree_traversal(tree.left, traversal)
-
-# 	if traversal == 'in':
-# 		print(tree.data, end=' ')
-# 	tree_traversal(tree.right, traversal)
-
-# 	if traversal == 'post':
-# 		print(tree.data, end=' ')
-
-
-# inorder = ['E','B','F','G','H','L','C','A','I','J']
-# preorder = ['H','B','E','F','G','C','L','I','A','J']
-
-# tree = binary_tree_from_preorder_inorder(preorder, inorder)
-# tree_traversal(tree, 'pre')
-

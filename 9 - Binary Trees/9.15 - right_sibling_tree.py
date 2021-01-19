@@ -1,22 +1,22 @@
 """
 Compute the right sibling tree
 """
-class BinaryTreeNode:
-	def __init__(self, data=0, left=None, right=None):
-		self.data = data
-		self.left = left
-		self.right = right
-		self.next = None
+# class BinaryTreeNode:
+# 	def __init__(self, data=0, left=None, right=None):
+# 		self.data = data
+# 		self.left = left
+# 		self.right = right
+# 		self.next = None
 
 
-def build_binary_tree(values, children):
-	nodes = [BinaryTreeNode(val) for val in values]
-	for i in range(len(children)):
-		if children[i][0] != None:
-			nodes[i].left = nodes[children[i][0]]
-		if children[i][1] != None:
-			nodes[i].right = nodes[children[i][1]]
-	return nodes[0]
+# def build_binary_tree(values, children):
+# 	nodes = [BinaryTreeNode(val) for val in values]
+# 	for i in range(len(children)):
+# 		if children[i][0] != None:
+# 			nodes[i].left = nodes[children[i][0]]
+# 		if children[i][1] != None:
+# 			nodes[i].right = nodes[children[i][1]]
+# 	return nodes[0]
 
 
 def construct_right_sibling(tree):
