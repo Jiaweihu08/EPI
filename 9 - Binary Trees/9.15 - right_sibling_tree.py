@@ -23,9 +23,6 @@ def construct_right_sibling(tree):
 	def populate_children_next_field(start_node):
 		while start_node and start_node.left:
 			start_node.left.next = start_node.right
-			# assign start_node.right.next to start_node.next.left
-			# if start_node.next, otherwise its assigned to start_node.next
-			# which is None
 			start_node.right.next = start_node.next and start_node.next.left
 			start_node = start_node.next
 
@@ -38,3 +35,4 @@ def construct_right_sibling(tree):
 # children = [[1,2],[3,4],[5,6],[7,8],[9,10],[11,12],[13,14]]
 # tree = build_binary_tree(values, children)
 # construct_right_sibling(tree)
+
