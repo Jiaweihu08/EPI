@@ -9,9 +9,7 @@ def look_and_say(n):
 	one and act accordingly
 	"""
 	def next_number(s):
-		result = []
-		prev = s[0]
-		count = 0
+		prev, result, count = s[0], [], 0
 		for char in s:
 			if char == prev:
 				count += 1

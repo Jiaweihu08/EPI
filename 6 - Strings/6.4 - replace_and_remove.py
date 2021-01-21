@@ -1,8 +1,6 @@
 """
 Given an array of characters, remove all b's and replace a's with dd's
 """
-
-
 def replace_and_remove(size, s):
 	write_idx, a_count = 0, 0
 	for i in range(size):

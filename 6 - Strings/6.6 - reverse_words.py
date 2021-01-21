@@ -25,5 +25,6 @@ def reverse_words(s):
 			break
 	print(''.join(s))
 
+
 s = 'Alice like Bob'
-reverse_words([i for i in s])
+reverse_words(list(s))

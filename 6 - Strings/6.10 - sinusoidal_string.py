@@ -8,7 +8,7 @@ def make_sinusoidal_naive(s):
 		else:
 			bottom.append(s[i])
 
-	return ''.join(top+middle+bottom)
+	return ''.join(top + middle + bottom)
 
 
 def make_sinusoidal(s):
