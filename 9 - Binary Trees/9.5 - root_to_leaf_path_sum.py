@@ -54,5 +54,3 @@ def sum_root_to_leaf(root):
 	
 	return sum_root_to_leaf_helper(tree, 0)
 
-
-

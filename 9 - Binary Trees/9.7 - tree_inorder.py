@@ -1,5 +1,5 @@
 """
-Implement inorder traversal without using recursion
+Implement inorder traversal without using recursion.
 """
 def inorder_traversal(tree):
 	result = []

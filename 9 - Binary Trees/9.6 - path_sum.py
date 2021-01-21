@@ -1,9 +1,9 @@
 """
 Given a binary tree with integer node data and a integer number.
-Write a program to determine is there exists a path sum from root
+Write a program to determine if there exists a path sum from root
 to any leaf that's equal to the given integer number.
 """
-def has_path_sum(tree, target_sum):
+def has_path_sum_increment(tree, target_sum):
 	def has_path_sum_helper(tree, curr_sum):
 		if not tree:
 			return False

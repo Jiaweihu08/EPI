@@ -1,14 +1,12 @@
 """
 Given the inorder traversal data and the preorder traversal data
-of a binary tree, reconstruct the tree
+of a binary tree, reconstruct the tree.
+
+The first node in the preorder traversal is always the root of the
+current tree. If we locate this node in the inorder traversal data,
+all nodes on its right side are the nodes from its left subtree,
+and all nodes on the right side are the nodes from its right subtree.
 """
-# class BinaryTreeNode:
-# 	def __init__(self, data=0, left=None, right=None):
-# 		self.data = data
-# 		self.left = left
-# 		self.right = right
-
-
 def binary_tree_from_preorder_inorder(preorder, inorder):
 	node_to_inorder_idx = {data: i for i, data in enumerate(inorder)}
 

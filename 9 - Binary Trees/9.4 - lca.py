@@ -1,27 +1,7 @@
 """
-Compute the LCA of two nodes in a binary tree, assuming
-that nodes have a parent field
+Compute the LCA of two nodes in a binary tree, assuming that
+nodes have a parent field.
 """
-# class BinaryTreeNode:
-# 	def __init__(self, data=0, parent=None, left=None, right=None):
-# 		self.data = data
-# 		self.parent = parent
-# 		self.left = left
-# 		self.right = right
-
-
-# def build_binary_tree(values, children):
-# 	nodes = [BinaryTreeNode(val) for val in values]
-# 	for i in range(len(children)):
-# 		if children[i][0] != None:
-# 			nodes[i].left = nodes[children[i][0]]
-# 			nodes[children[i][0]].parent = nodes[i]
-# 		if children[i][1] != None:
-# 			nodes[i].right = nodes[children[i][1]]
-# 			nodes[children[i][1]].parent = nodes[i]
-# 	return nodes
-
-
 def lca_naive(tree, node0, node1):
 	"""
 	O(h) time and space complexity
@@ -62,12 +42,4 @@ def lca(tree, node0, node1):
 	while node0 is not node1:
 		node0, node1 = node0.parent, node1.parent
 	return node0
-
-
-
-# values = range(9)
-# children = [[1,2],[3,4],[5,6],[7,8]]
-# nodes = build_binary_tree(values, children)
-# print(lca(nodes[0], nodes[-1], nodes[1]).data)
-
 

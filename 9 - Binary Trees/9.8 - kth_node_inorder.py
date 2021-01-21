@@ -1,6 +1,7 @@
 """
 Given a binary tree and an integer k, find the kth node
-when traversing the tree in an inorder fashion.
+when traversing the tree in an inorder fashion. Each node
+has an extra field denoting the size of the tree.
 """
 def find_kth_node_binary_tree(tree, k):
 	while tree:

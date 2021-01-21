@@ -1,24 +1,6 @@
 """
-Compute the right sibling tree
+Compute the next filed for a perfect binary tree.
 """
-# class BinaryTreeNode:
-# 	def __init__(self, data=0, left=None, right=None):
-# 		self.data = data
-# 		self.left = left
-# 		self.right = right
-# 		self.next = None
-
-
-# def build_binary_tree(values, children):
-# 	nodes = [BinaryTreeNode(val) for val in values]
-# 	for i in range(len(children)):
-# 		if children[i][0] != None:
-# 			nodes[i].left = nodes[children[i][0]]
-# 		if children[i][1] != None:
-# 			nodes[i].right = nodes[children[i][1]]
-# 	return nodes[0]
-
-
 def construct_right_sibling(tree):
 	def populate_children_next_field(start_node):
 		while start_node and start_node.left:
@@ -29,10 +11,3 @@ def construct_right_sibling(tree):
 	while tree and tree.left:
 		populate_children_next_field(tree)
 		tree = tree.left
-
-
-# values = range(15)
-# children = [[1,2],[3,4],[5,6],[7,8],[9,10],[11,12],[13,14]]
-# tree = build_binary_tree(values, children)
-# construct_right_sibling(tree)
-

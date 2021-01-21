@@ -1,6 +1,5 @@
 """
-Given a binary tree, design an algorithm to find all leaves
-in the tree.
+Given a binary tree, design an algorithm to find all leaves in the tree.
 """
 def tree_leaves(tree):
 	def find_subtree_leaf(tree):

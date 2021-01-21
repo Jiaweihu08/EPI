@@ -1,27 +1,9 @@
 """
-Given a binary tree, check whether the tree is balanced
-A binary tree is said to be balanced if for each node
-the difference between the height of its left subtree
-and its right subtree is at most one
+Given a binary tree, check whether the tree is balanced.
+A binary tree is said to be balanced if for each node the difference between
+the height of its left and right subtree is at most one.
 """
 import collections
-
-
-# class BinaryTreeNode:
-# 	def __init__(self, data=0, left=None, right=None):
-# 		self.data = data
-# 		self.left = left
-# 		self.right = right
-
-
-# def build_binary_tree(values, children):
-# 	nodes = [BinaryTreeNode(val) for val in values]
-# 	for i in range(len(children)):
-# 		if children[i][0] != None:
-# 			nodes[i].left = nodes[children[i][0]]
-# 		if children[i][1] != None:
-# 			nodes[i].right = nodes[children[i][1]]
-# 	return nodes[0]
 
 
 def is_tree_balanced(tree):
@@ -46,10 +28,3 @@ def is_tree_balanced(tree):
 
 	return check_balanced(tree).is_balanced
 
-
-
-# values = range(9)
-# children = [[1,2],[3,4],[None,None],[7,8]]
-# tree = build_binary_tree(values, children)
-
-# print(is_tree_balanced(tree))

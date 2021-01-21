@@ -1,6 +1,6 @@
 """
-Given a binary tree, and two nodes, find the LCA of these
-two nodes in the tree. Nodes don't have a parent pointer
+Given a binary tree, and two nodes, find the LCA of these two nodes
+in the tree. Nodes don't have a parent pointer.
 """
 import collections
 
