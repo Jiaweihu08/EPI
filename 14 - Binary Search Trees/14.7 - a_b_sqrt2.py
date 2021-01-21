@@ -8,13 +8,16 @@ import heapq, math
 class Number:
 	def __init__(self, a, b):
 		self.a, self.b = a, b
-		self.val = self.a + self.b * math.sqrt(2)
-
+		
 	def __lt__(self, other):
 		return self.val < other.val
 
 	def __eq__(self, other):
 		return self.val == other.val
+
+	@property
+	def val(self):
+		return self.a + self.b * math.sqrt(2)
 
 
 def generate_first_k_a_b_sqrt2(k):

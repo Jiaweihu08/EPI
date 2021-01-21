@@ -1,14 +1,15 @@
 """
-Given a binary tree, check if it satisfies the property of BST
+Given a binary tree, check if it satisfies the property of BST.
 """
 import collections
 
 
-def is_binary_tree(tree):
+def is_binary_tree_range_check(tree):
 	"""
-	Check if each node's data are in their valid ranges using DFS
-	Time complexity O(n)
-	Space complexity O(h), h is the height of the tree
+	Check if each node's data are in their valid ranges using DFS.
+	
+	Time complexity O(n).
+	Space complexity O(h), h is the height of the tree.
 	"""
 	def is_valid_key(tree,
 		left_limit=float('-inf'),
@@ -25,33 +26,30 @@ def is_binary_tree(tree):
 def is_binary_tree_inorder_traversal(tree):
 	"""
 	Exploit the fact that an inorder traversal renders data in
-	sorted order for BST
+	sorted order for BST.
 
-	Use inorder traversal to check whether the current key is
-	smaller the the previous key
-	O(n) time complexity, O(h) space complexity
+	O(n) time complexity.
+	O(h) space complexity.
 	"""
 	def inorder_traversal(tree):
 		if not tree:
 			return True
-
-		valid_left_subtree = inorder_traversal(tree.left)
-		if not valid_left_subtree or prev[0] > tree.data:
+		if (not inorder_traversal(tree.left)
+			or prev[0] > tree.data):
 			return False
-
 		prev[0] = tree.data
 		return inorder_traversal(tree.right)
 	prev = [float('-inf')]
 	return inorder_traversal(tree)
 
 
-def is_binary_tree(tree):
+def is_binary_tree_bfs(tree):
 	"""
-	The previous methods checks nodes in DFS fashion, if the node that
+	The previous methods checks nodes in DFS fashion. If the node that
 	violates BST property is close to the root but not on the left
-	subtree, the space complexity is still O(n)
+	subtree, the time complexity is still O(n).
 
-	Check the tree nodes with BFS to improve efficiency
+	Check the tree nodes with BFS to improve efficiency.
 	"""
 	QueueEntry = collections.namedtuple('QueueEntry', ('node', 'lower', 'upper'))
 	bfs_queue = collections.deque([QueueEntry(tree, float('-inf'), float('inf'))])
@@ -66,5 +64,3 @@ def is_binary_tree(tree):
 				QueueEntry(front.node.right, front.node.data, front.upper)))
 	return True
 
-
-# Tested with EPIJudge
