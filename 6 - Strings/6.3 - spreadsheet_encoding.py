@@ -1,7 +1,7 @@
 """
 Convert spread sheet column id into integer ids.
 
-e.g. 'A' -> 1, 'D' -> 4, 'ZZ' -> 7.2
+e.g. 'A' -> 1, 'D' -> 4, 'ZZ' -> 702
 """
 import functools
 
